@@ -7,7 +7,7 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get('health')
-  getHealth() {
+  getHealth(): ReturnType<typeof this.appService.getHealth> {
     return this.appService.getHealth()
   }
 }
