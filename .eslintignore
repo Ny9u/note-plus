@@ -1,0 +1,15 @@
+# Build outputs
+.next
+dist
+build
+.turbo
+
+# Dependencies
+node_modules
+
+# Cache
+.cache
+*.log
+
+# OS files
+.DS_Store

@@ -9,6 +9,7 @@
     "start:prod": "node dist/main",
     "build": "nest build",
     "lint": "eslint \"{src,test}/**/*.ts\"",
+    "format": "prettier --write .",
     "test": "jest"
   },
   "dependencies": {

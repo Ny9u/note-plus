@@ -87,12 +87,59 @@ pnpm build
 **类型**: `feat`, `fix`, `refactor`, `docs`, `test`, `chore`, `perf`, `ci`
 
 **示例**:
+
 ```bash
 git commit -m "feat: 添加用户登录功能"
 git commit -m "fix: 修复 PDF 预览问题"
 ```
 
 详细说明请查看 [COMMIT_CONVENTION.md](./COMMIT_CONVENTION.md)
+
+### 代码质量和格式化
+
+**Lint 检查**:
+
+```bash
+# 所有工作空间
+pnpm lint
+
+# 特定工作空间
+pnpm --filter web lint
+pnpm --filter api lint
+```
+
+**代码格式化**:
+
+```bash
+# 格式化所有文件
+pnpm format
+
+# 检查格式（不修改文件）
+pnpm format:check
+```
+
+**Git Hooks**: 提交代码时会自动运行 lint 和格式化检查（通过 lint-staged）
+
+### IDE 设置（推荐）
+
+**VS Code 扩展**:
+
+- ESLint - 实时代码质量检查
+- Prettier - 代码格式化
+
+项目已包含 `.vscode/extensions.json` 推荐扩展列表，打开项目时 VS Code 会提示安装。
+
+**自动格式化设置**:
+
+```json
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}
+```
 
 ### 添加新的共享包
 

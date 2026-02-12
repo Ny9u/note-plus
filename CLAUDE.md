@@ -124,6 +124,7 @@ This project enforces [Conventional Commits](https://www.conventionalcommits.org
 **Allowed types**: `feat`, `fix`, `refactor`, `docs`, `test`, `chore`, `perf`, `ci`, `style`, `revert`
 
 **Examples**:
+
 ```bash
 git commit -m "feat: 添加用户登录功能"
 git commit -m "fix: 修复 PDF 预览问题"
@@ -131,6 +132,69 @@ git commit -m "refactor: 优化数据库查询"
 ```
 
 See `COMMIT_CONVENTION.md` for detailed guidelines.
+
+## Code Quality & Formatting
+
+### ESLint
+
+The project uses ESLint 9 with flat config for code quality checks.
+
+```bash
+# Run lint checks across all workspaces
+pnpm lint
+
+# Run lint in specific workspace
+pnpm --filter web lint
+pnpm --filter api lint
+
+# Auto-fix issues
+pnpm --filter web lint --fix
+pnpm --filter api lint --fix
+```
+
+**Configuration:**
+
+- Root: `eslint.config.js` - TypeScript base rules, import sorting, unused variables
+- Frontend: `apps/web/eslint.config.js` - Next.js rules, React Hooks
+- Backend: `apps/api/eslint.config.js` - NestJS rules, decorator support
+
+### Prettier
+
+Code formatting is handled by Prettier with the following style:
+
+- No semicolons
+- Single quotes
+- 100 character line width
+- 2 space indentation
+- LF line endings
+
+```bash
+# Format all files
+pnpm format
+
+# Check formatting without modifying files
+pnpm format:check
+```
+
+**Configuration:** `.prettierrc` and `.prettierignore` in the root directory
+
+### Git Hooks
+
+Pre-commit hooks automatically run lint and format checks on staged files using `lint-staged`:
+
+- TypeScript/JavaScript: ESLint fix + Prettier
+- JSON/Markdown: Prettier only
+
+To skip hooks in emergencies: `git commit --no-verify`
+
+### IDE Setup (Recommended)
+
+Install VS Code extensions for real-time feedback:
+
+- **ESLint** (`dbaeumer.vscode-eslint`)
+- **Prettier** (`esbenp.prettier-vscode`)
+
+The project includes `.vscode/extensions.json` with recommended extensions.
 
 ## Testing & Verification
 
@@ -147,6 +211,7 @@ See `COMMIT_CONVENTION.md` for detailed guidelines.
 ## Future Implementation Areas
 
 The following are **not yet implemented** but are planned:
+
 - User authentication (JWT)
 - Database integration (TypeORM + PostgreSQL)
 - PDF document processing
