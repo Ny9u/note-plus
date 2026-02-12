@@ -1,4 +1,4 @@
-import './globals.less';
+import './globals.css';
 
 export const metadata = {
   title: 'Note Plus',

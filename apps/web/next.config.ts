@@ -1,25 +1,8 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  // 配置 Less 支持
-  webpack: (config) => {
-    config.module.rules.push({
-      test: /\.less$/,
-      use: [
-        'style-loader',
-        'css-loader',
-        {
-          loader: 'less-loader',
-          options: {
-            lessOptions: {
-              javascriptEnabled: true,
-            },
-          },
-        },
-      ],
-    });
-    return config;
-  },
+  // Tailwind CSS 通过 PostCSS 自动处理
+  // 注意: Less 支持已移除,改为完全使用 Tailwind CSS
 };
 
 export default nextConfig;
