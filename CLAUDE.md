@@ -24,13 +24,15 @@ note-plus/
 
 ### Key Architectural Decisions
 
-1. **Styling**: Uses **Less**, not Tailwind CSS. Less configuration is in `apps/web/next.config.ts` with webpack loaders.
+1. **Styling**: Uses **Tailwind CSS 3** (with **shadcn/ui** component library) as the styling solution. Tailwind configuration is in `apps/web/tailwind.config.ts`. Global styles in `apps/web/app/globals.css`.
 
-2. **API Routes**: All NestJS endpoints are prefixed with `/api` (configured in `apps/api/src/main.ts`).
+2. **UI Components**: Uses **shadcn/ui** as the component library. Components are installed locally in `apps/web/components/ui/`. Add new components via `pnpm dlx shadcn@latest add <component-name>`.
 
-3. **CORS**: Enabled globally in the API for frontend-backend communication.
+3. **API Routes**: All NestJS endpoints are prefixed with `/api` (configured in `apps/api/src/main.ts`).
 
-4. **Build Order**: Turborepo automatically handles build dependencies. Packages build before apps.
+4. **CORS**: Enabled globally in the API for frontend-backend communication.
+
+5. **Build Order**: Turborepo automatically handles build dependencies. Packages build before apps.
 
 ## Development Commands
 
@@ -88,8 +90,12 @@ pnpm clean
 
 - **App Router**: Uses Next.js 15 App Router (not Pages Router)
 - **Layouts**: Root layout is in `apps/web/app/layout.tsx`
-- **Styling**: Global styles in `apps/web/app/globals.less`
-- **Less Files**: Import `.less` files directly in components - webpack is configured to handle them
+- **Styling**:
+  - **Primary**: Tailwind CSS with `globals.css` for base styles
+  - **Components**: shadcn/ui components in `components/ui/`
+- **Path Aliases**: `@/*` maps to project root (configured in `tsconfig.json`)
+- **Adding UI Components**: Run `pnpm dlx shadcn@latest add <component-name>` to add new shadcn/ui components
+- **Utility Functions**: `lib/utils.ts` contains `cn()` helper for className merging
 
 ### Backend (NestJS)
 

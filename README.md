@@ -7,7 +7,7 @@
 ```
 note-plus/
 ├── apps/
-│   ├── web/                # Next.js 15 前端 (App Router + Less)
+│   ├── web/                # Next.js 15 前端 (App Router + Tailwind + shadcn/ui)
 │   └── api/                # NestJS 后端
 ├── packages/
 │   ├── shared-types/       # 共享类型定义
@@ -21,7 +21,7 @@ note-plus/
 
 - **包管理**: pnpm workspace
 - **构建工具**: Turborepo
-- **前端**: Next.js 15 (App Router) + Less
+- **前端**: Next.js 15 (App Router) + Tailwind CSS 3 + shadcn/ui
 - **后端**: NestJS 10
 - **语言**: TypeScript
 
@@ -65,7 +65,7 @@ pnpm build
 ## 当前状态
 
 ✅ Monorepo 基础架构已完成
-✅ Next.js 前端可运行（Less 样式支持）
+✅ Next.js 前端可运行（Tailwind CSS + shadcn/ui）
 ✅ NestJS 后端可运行（健康检查端点）
 ✅ 共享 packages 目录结构已创建
 
