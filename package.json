@@ -30,11 +30,11 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "eslint --fix",
+      "bash -c 'ESLINT_USE_FLAT_CONFIG=false eslint --fix \"$@\"' --",
       "prettier --write"
     ],
     "*.{js,jsx}": [
-      "eslint --fix",
+      "bash -c 'ESLINT_USE_FLAT_CONFIG=false eslint --fix \"$@\"' --",
       "prettier --write"
     ],
     "*.json": [
