@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@next/bundle-analyzer": "^16.1.6",
@@ -25,6 +26,9 @@
     "@types/react-dom": "^19.0.0",
     "autoprefixer": "^10.4.24",
     "css-loader": "^6.8.1",
+    "eslint-config-next": "^16.1.6",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
     "less": "^4.2.0",
     "less-loader": "^12.2.0",
     "postcss": "^8.5.6",

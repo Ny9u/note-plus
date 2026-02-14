@@ -1,0 +1,23 @@
+# Build outputs
+.next
+dist
+build
+.turbo
+
+# Dependencies
+node_modules
+
+# Lock files
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# Git hooks
+.husky
+
+# Cache and logs
+.cache
+*.log
+
+# OS files
+.DS_Store
